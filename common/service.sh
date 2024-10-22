@@ -1,4 +1,10 @@
-#!/system/bin/sh
-
 MODDIR=${0%/*}
-$MODDIR/ceserver_arm64 &
+
+while [ "$(getprop sys.boot_completed)" != 1 ]; do
+    sleep 1
+done
+
+while true; do
+    sleep 5
+    ceserver
+done
